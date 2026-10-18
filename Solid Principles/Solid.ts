@@ -85,11 +85,11 @@ class InvoiceService {
 // -----------------------------------------------------------------------------
 // Subclasses should be able to replace their parent types without breaking behavior.
 
-interface Vehicle {
+interface Vehicle1 {
   accelerate(): number;
 }
 
-class Car implements Vehicle {
+class Car implements Vehicle1 {
   constructor(private speed: number = 0) {}
 
   accelerate(): number {
@@ -98,7 +98,7 @@ class Car implements Vehicle {
   }
 }
 
-class Bicycle implements Vehicle {
+class Bicycle implements Vehicle1 {
   constructor(private speed: number = 0) {}
 
   accelerate(): number {
@@ -107,8 +107,8 @@ class Bicycle implements Vehicle {
   }
 }
 
-function testVehicle(vehicle: Vehicle): number {
-  return vehicle.accelerate();
+function testVehicle1(Vehicle1: Vehicle1): number {
+  return Vehicle1.accelerate();
 }
 
 // -----------------------------------------------------------------------------
@@ -194,8 +194,8 @@ fileService.save(invoice);
 
 const car = new Car();
 const bicycle = new Bicycle();
-console.log("Car speed:", testVehicle(car));
-console.log("Bicycle speed:", testVehicle(bicycle));
+console.log("Car speed:", testVehicle1(car));
+console.log("Bicycle speed:", testVehicle1(bicycle));
 
 const motorcycle = new Motorcycle();
 const bike = new BicycleOnly();
