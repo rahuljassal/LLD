@@ -2,6 +2,10 @@
 
 A collection of notes and code for practicing low-level design (LLD).
 
+## Getting started
+
+- [TypeScript Cheatsheet for Low-Level Design](./TypeScript-for-LLD.md)
+
 ## Topics
 
 Use this page as the index. Each topic folder contains its detailed study notes and related implementation files.

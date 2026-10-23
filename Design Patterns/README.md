@@ -2,7 +2,12 @@
 
 This folder contains practical TypeScript examples and notes for understanding common design patterns.
 
-The working example is available in [StratergyDesignPattern.ts](./StratergyDesignPattern.ts).
+New to TypeScript? Start with the repository's [TypeScript for LLD cheatsheet](../TypeScript-for-LLD.md).
+
+## Examples in this folder
+
+- [StratergyDesignPattern.ts](./StratergyDesignPattern.ts) — Strategy pattern example.
+- [ObeserverDesignPattern.ts](./ObeserverDesignPattern.ts) — Observer pattern notification exercise.
 
 ## What are design patterns?
 
