@@ -31,6 +31,7 @@
 type StockNotification = {
   title: string;
   message: string;
+  isInStock: boolean;
 };
 
 interface Observer {
@@ -81,7 +82,7 @@ class EmailChannel implements NotificationChannel {
     if (destination.mode === "email") {
       // send email logic here
       console.log(
-        `Sending email to ${destination.address}: ${notification.title} - ${notification.message}`,
+        `Sending email to ${destination.address}: ${notification.title} - ${notification.message} (In stock: ${notification.isInStock})`,
       );
     }
   }
@@ -93,7 +94,7 @@ class SmsChannel implements NotificationChannel {
     if (destination.mode === "sms") {
       // send SMS logic here
       console.log(
-        `Sending SMS to ${destination.phoneNumber}: ${notification.title} - ${notification.message}`,
+        `Sending SMS to ${destination.phoneNumber}: ${notification.title} - ${notification.message} (In stock: ${notification.isInStock})`,
       );
     }
   }
@@ -105,7 +106,7 @@ class PushChannel implements NotificationChannel {
     if (destination.mode === "push") {
       // send push notification logic here
       console.log(
-        `Sending push notification to device ${destination.deviceId} (${destination.os}): ${notification.title} - ${notification.message}`,
+        `Sending push notification to device ${destination.deviceId} (${destination.os}): ${notification.title} - ${notification.message} (In stock: ${notification.isInStock})`,
       );
     }
   }
@@ -189,6 +190,7 @@ notificationCenter.subscribe(recipient);
 notificationCenter.publish({
   title: "Sale started",
   message: "Your favorite items are on sale.",
+  isInStock: true,
 });
 
 // Stop sending notifications to this recipient:
