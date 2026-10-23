@@ -8,6 +8,7 @@ New to TypeScript? Start with the repository's [TypeScript for LLD cheatsheet](.
 
 - [StratergyDesignPattern.ts](./StratergyDesignPattern.ts) — Strategy pattern example.
 - [ObeserverDesignPattern.ts](./ObeserverDesignPattern.ts) — Observer pattern notification exercise.
+- [DecoratorDesignPattern.ts](./DecoratorDesignPattern.ts) — Decorator pattern pizza-topping example.
 
 ## What are design patterns?
 
@@ -52,6 +53,48 @@ Use them when:
 - you need to compose objects in a cleaner way
 - you want to simplify interfaces
 - you need to extend or wrap existing behavior
+
+## Decorator Design Pattern
+
+The Decorator pattern adds behavior to an object by wrapping it in another object that follows the same interface or base type. The wrapped object and the decorator can therefore be used interchangeably by client code.
+
+### Pizza example
+
+In [DecoratorDesignPattern.ts](./DecoratorDesignPattern.ts):
+
+- `BasePizza` is the component contract: each pizza must provide `cost()`.
+- `Margherita` and `FarmHouse` are concrete pizzas with their own base prices.
+- `ToppingDecorator` wraps another `BasePizza` and delegates `cost()` to it.
+- `CheeseTopping` and `MushroomTopping` add their prices to the wrapped pizza.
+
+The example builds the order inside out:
+
+```ts
+const pizza = new MushroomTopping(
+  new CheeseTopping(new FarmHouse()),
+);
+```
+
+The `FarmHouse` costs `200`, cheese adds `20`, and mushroom adds `30`, for a total of `250`. Each wrapper returns a `BasePizza`, so toppings can be stacked without needing a separate class for every combination.
+
+### How to recognize the pattern
+
+1. A component defines the operation the client uses.
+2. A concrete component provides the base behavior.
+3. A decorator contains a component of the same base type and forwards the operation.
+4. A concrete decorator adds its behavior before or after delegation.
+
+### When to use it
+
+- Optional features or responsibilities need to be combined in different combinations.
+- You want to extend an individual object's behavior without changing its class.
+- Subclassing every possible combination would create too many classes.
+
+### Trade-offs
+
+- Wrapping can create many small objects and make debugging call chains less obvious.
+- Decorators need to preserve the component's contract so they can be substituted safely.
+- If the behavior has only a few stable combinations, a simpler design may be easier to understand.
 
 ### 3. Behavioral patterns
 These patterns focus on communication between objects and how responsibility is distributed.

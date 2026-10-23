@@ -13,7 +13,7 @@ Use this page as the index. Each topic folder contains its detailed study notes 
 | # | Topic | Status | Study notes | Code |
 | --- | --- | --- | --- | --- |
 | 1 | SOLID Principles | Complete | [Study guide](./Solid%20Principles/README.md) | [TypeScript examples](./Solid%20Principles/Solid.ts) |
-| 2 | Design Patterns | Complete | [Study guide](./Design%20Patterns/README.md) | [TypeScript examples](./Design%20Patterns/StratergyDesignPattern.ts) |
+| 2 | Design Patterns | In progress | [Study guide](./Design%20Patterns/README.md) | [Strategy](./Design%20Patterns/StratergyDesignPattern.ts), [Observer](./Design%20Patterns/ObeserverDesignPattern.ts), [Decorator](./Design%20Patterns/DecoratorDesignPattern.ts) |
 
 Suggested statuses: `Not started`, `In progress`, `Complete`.
 
